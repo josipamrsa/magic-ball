@@ -28,17 +28,27 @@ public class MagicBall {
     public static void main(String[] args) {
         HashMap<Integer, String[]> possiblePredictions = generatePossibleAnswers();
         Scanner scanner = new Scanner(System.in);
-	    User user = new User("A01", "Josipa");
+        String userQuestion = "";
+
+        User user = new User("A01", "Josipa");
 
         System.out.println("Hello " + user.getUserName() + "!");
         System.out.println();
 
-        // TODO - loop
-        System.out.println("Please enter a YES/NO question: ");
-        String userQuestion = scanner.nextLine();
-        Prediction prediction = new Prediction(possiblePredictions, userQuestion);
+        while (!userQuestion.equals("Q") && !userQuestion.equals("q")) {
+            System.out.println("Please enter a YES/NO question (press Q to exit): ");
+            userQuestion = scanner.nextLine();
+            Prediction prediction = new Prediction(possiblePredictions, userQuestion);
 
-        System.out.println("Your question is: " + userQuestion);
-        System.out.println("The magic ball says: " + prediction.getAnswer());
+            if (userQuestion.equals("Q") || userQuestion.equals("q")) {
+                System.out.println("Magic ball says: Thank you for playing!");
+                break;
+            }
+
+            else {
+                System.out.println("Your question is: " + userQuestion);
+                System.out.println("The magic ball says: " + prediction.getAnswer());
+            }
+        }
     }
 }
