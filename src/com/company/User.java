@@ -6,7 +6,7 @@ public class User {
     //----FIELDS----//
     private String userID;
     private String userName;
-    private List<String> questionHistory;
+    private ArrayList<String> questionHistory;
 
     private int positiveOutcomes;
     private int negativeOutcomes;
@@ -31,11 +31,11 @@ public class User {
         this.userName = userName;
     }
 
-    public List<String> getQuestionHistory() {
+    public ArrayList<String> getQuestionHistory() {
         return questionHistory;
     }
 
-    public void setQuestionHistory(List<String> questionHistory) {
+    public void setQuestionHistory(ArrayList<String> questionHistory) {
         this.questionHistory = questionHistory;
     }
 

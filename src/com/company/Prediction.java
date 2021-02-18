@@ -9,6 +9,7 @@ public class Prediction {
     //----FIELDS----//
     private String question;
     private String answer;
+    private int answerIntent;
     private Map<Integer, String[]> listOfPredictions;
 
     //----GETTERS/SETTERS----//
@@ -26,6 +27,14 @@ public class Prediction {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public int getAnswerIntent() {
+        return answerIntent;
+    }
+
+    public void setAnswerIntent(int answerIntent) {
+        this.answerIntent = answerIntent;
     }
 
     public Map<Integer, String[]> getListOfPredictions() {
@@ -53,6 +62,8 @@ public class Prediction {
                 .findFirst()                                    // Only pick the first one
                 .getAsInt();                                    // Convert chosen int from IntStream to int primitive
 
+        // Set intent for User outcome calculation (positive, negative, indifferent)
+        setAnswerIntent(randomOutcome);
         // Get the list of answers connected to chosen outcome and the length
         String[] answerList = predictions.get(randomOutcome);
         int listLength = answerList.length;
