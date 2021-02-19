@@ -16,7 +16,6 @@ public class Prediction {
     public String getQuestion() {
         return question;
     }
-
     public void setQuestion(String question) {
         this.question = question;
     }
@@ -24,7 +23,6 @@ public class Prediction {
     public String getAnswer() {
         return answer;
     }
-
     public void setAnswer(String answer) {
         this.answer = answer;
     }
@@ -32,7 +30,6 @@ public class Prediction {
     public int getAnswerIntent() {
         return answerIntent;
     }
-
     public void setAnswerIntent(int answerIntent) {
         this.answerIntent = answerIntent;
     }
@@ -40,16 +37,18 @@ public class Prediction {
     public Map<Integer, String[]> getListOfPredictions() {
         return listOfPredictions;
     }
-
     public void setListOfPredictions(Map<Integer, String[]> listOfPredictions) {
         this.listOfPredictions = listOfPredictions;
     }
 
+    //----CONSTRUCTOR----//
     Prediction(HashMap<Integer, String[]> predictions, String question) {
         this.listOfPredictions = predictions;
         this.question = question;
         this.answer = getRandomAnswer(predictions);
     }
+
+    //----FUNCTIONS----//
 
     // Gets a random string from a provided HashMap
     // and returns it as Magic Ball answer

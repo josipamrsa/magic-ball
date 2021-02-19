@@ -34,6 +34,7 @@ public class User {
     public int getKarma() { return karma; }
     public void setKarma(int karma) { this.karma = karma; }
 
+    //----CONSTRUCTORS----//
     User(String uid, String uname) {
         this.userID = uid;
         this.userName = uname;
@@ -41,12 +42,16 @@ public class User {
         this.karma = 0;
     }
 
+    //----FUNCTIONS----//
+
+    // Update user history with asked question
     void updateUserQuestionHistory(String question) {
         ArrayList<String> history = this.getQuestionHistory();
         history.add(question);
         this.setQuestionHistory(history);
     }
 
+    // Update user karma based on points (although karma is not fully appropriate as name)
     void updateUserKarma(int points) {
         this.setKarma(this.getKarma() + points);
     }
