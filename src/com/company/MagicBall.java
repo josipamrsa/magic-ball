@@ -36,7 +36,7 @@ public class MagicBall {
         System.out.println();
 
         while (!userQuestion.equals("Q") && !userQuestion.equals("q")) {
-            System.out.println("Please enter a YES/NO question (write Q to exit): ");
+            System.out.println("Please enter a YES/NO question (Q + Enter to exit): ");
             userQuestion = scanner.nextLine();
             Prediction prediction = new Prediction(possiblePredictions, userQuestion);
 
@@ -46,13 +46,13 @@ public class MagicBall {
             }
 
             else {
-                ArrayList<String> history = user.getQuestionHistory();
-                history.add(userQuestion);
-                user.setQuestionHistory(history);
-
+                user.updateUserQuestionHistory(userQuestion);
+                user.updateUserKarma(prediction.getAnswerIntent());
 
                 System.out.println("Your question is: " + userQuestion);
                 System.out.println("The magic ball says: " + prediction.getAnswer());
+                System.out.println("You currently have " + user.getKarma() + " karma!");
+                System.out.println();
             }
         }
     }
